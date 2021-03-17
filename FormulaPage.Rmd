@@ -21,26 +21,26 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Exam 2
 
-### The Interquartile Range
+### The Interquartile Range (*IQR*)
 
 $$Q_3-Q_1$$
 <br/>
 
 ### The mean
 
-$$\overline{x}=\frac{\sum{x_i}}{N}$$
+$$\overline{x}=\frac{\sum{x_i}}{n}$$
 <br/>
 
 ### The variance
 
 
-$$s^2=\frac{\sum(x_i-\overline{x})^2}{N-1}$$
+$$s^2=\frac{\sum(x_i-\overline{x})^2}{n-1}$$
 
 <br/>
 
 ### the standard deviation
 
-$$s=\sqrt{\frac{\sum(x_i-\overline{x})^2}{N-1}}$$
+$$s=\sqrt{\frac{\sum(x_i-\overline{x})^2}{n-1}}$$
 <br/>
 
 ### the *z*-score
