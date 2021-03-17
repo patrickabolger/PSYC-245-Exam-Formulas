@@ -1,0 +1,61 @@
+---
+title: "PSYC 245 Exam Formulas"
+author: "Patrick Bolger, PhD"
+date: "16 March 2021"
+knit: (function(input_file, encoding) {
+  out_dir <- 'docs';
+  rmarkdown::render(input_file,
+ encoding=encoding,
+ output_file=file.path(dirname(input_file), out_dir, 'index.html'))})
+output: 
+  rmdformats::downcute:
+    use_bookdown: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# PSYC 245
+
+## Exam 2
+
+### The Interquartile Range
+
+$$Q_3-Q_1$$
+<br/>
+
+### The mean
+
+$$\overline{x}=\frac{\sum{x_i}}{N}$$
+<br/>
+
+### The variance
+
+
+$$s^2=\frac{\sum(x_i-\overline{x})^2}{N-1}$$
+
+<br/>
+
+### the standard deviation
+
+$$s=\sqrt{\frac{\sum(x_i-\overline{x})^2}{N-1}}$$
+<br/>
+
+### the *z*-score
+
+
+$$z_i=\frac{x_i-\overline{x}}{s}$$
+
+<br/>
+
+### Pearson's *r* correlation coefficient
+
+$$r_{x,y}=\frac{\sum z_{(x_i)}z_{(y_i)}}{n-1}$$
+
+<br/>
+
+### Simple Regression equation
+
+$$y=a+bX$$
