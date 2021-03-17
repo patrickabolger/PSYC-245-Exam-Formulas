@@ -50,6 +50,12 @@ $$z_i=\frac{x_i-\overline{x}}{s}$$
 
 <br/>
 
+### a raw score, given a z-score, an SD, and a mean
+
+$$x_i=z_i(s)+\overline{x}$$
+
+<br/>
+
 ### Pearson's *r* correlation coefficient
 
 $$r_{x,y}=\frac{\sum z_{(x_i)}z_{(y_i)}}{n-1}$$
