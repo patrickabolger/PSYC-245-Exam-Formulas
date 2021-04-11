@@ -1,7 +1,8 @@
 ---
 title: "PSYC 245 Exam Formulas"
+subtitle: "(scroll down for the exam you need)"
 author: "Patrick Bolger, PhD"
-date: "16 March 2021"
+date: "11 April 2021"
 knit: (function(input_file, encoding) {
   out_dir <- 'docs';
   rmarkdown::render(input_file,
@@ -65,3 +66,25 @@ $$r_{x,y}=\frac{\sum z_{(x_i)}z_{(y_i)}}{n-1}$$
 ### Simple Regression equation
 
 $$y=a+bX$$
+
+## Exam 3
+
+### Odds
+
+$$Odds = A\ to\ B$$
+
+### probability from odds
+
+$$\frac{B}{A+B}$$
+
+### expected value
+
+$$Expected\ value=a_1p_1+a_2p_2+\ ...a_kp_k$$
+
+, where
+
+*a*: possible outcomes  
+*p*: associated probabilities  
+*k*: number of possible outcomes  
+
+---
