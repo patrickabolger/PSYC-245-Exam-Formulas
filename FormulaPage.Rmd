@@ -2,7 +2,7 @@
 title: "PSYC 245 Exam Formulas"
 subtitle: "(scroll down for the exam you need)"
 author: "Patrick Bolger, PhD"
-date: "11 April 2021"
+date: "29 April 2021"
 knit: (function(input_file, encoding) {
   out_dir <- 'docs';
   rmarkdown::render(input_file,
@@ -100,7 +100,20 @@ $$95\%\ CI_p= \hat{p}\pm\Bigg(2\times\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\Bigg)$$
 
 ### **More exact** Confidence Intervals for a proportion
 
-$$XX\%\ CI_p= \hat{p}\pm\Bigg(z^*\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\Bigg)$$
+$$CI_p= \hat{p}\pm\Bigg(z^*\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\Bigg)$$
+<br/>
+
+### Important $z^*$ values
+
+- 95th percentile  
+  - 1.64  
+- 97.5th percentile  
+  - 1.96  
+- 99.5th percentile  
+  - 2.58  
+  
+(for more, see [http://www.normaltable.com/](http://www.normaltable.com/))
+  
 <br/>
 
 ### Confidence Intervals for a mean
@@ -110,7 +123,7 @@ $$95\%\ CI_{\mu}= \bar{x}\pm\Bigg(z^*\times\frac{s}{\sqrt{n}}\Bigg)$$
 
 ### *p*-value
 
-$$p-value=P\big(D|H_0\big)$$
+$$p=P\big(D|H_0\big)$$
 <br/>
 
 ### *z*-test
@@ -118,11 +131,15 @@ $$p-value=P\big(D|H_0\big)$$
 $$z=\frac{\bar{x}-\mu_{null}}{SE_{mean}}$$
 <br/>
 
-(the mean minus the mean assumed under the null hypothesis, divided by the standard error of the mean)
+[the sample mean ($\bar{x}$) minus the mean assumed under the null hypothesis ($\mu_{null}$), divided by the standard error of the mean ($SE_{mean}$)]
+
+<br/>
+
+#### The standard error of the mean
 
 $$SE_{mean}=\frac{s}{\sqrt{n}}$$
 <br/>
 
-Combined formula
+#### Combined formula for a *z*-test
 
 $$z=\frac{\bar{x}-\mu_{null}}{s \big/\sqrt{n}}$$
