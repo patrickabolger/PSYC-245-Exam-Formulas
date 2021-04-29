@@ -126,7 +126,33 @@ $$95\%\ CI_{\mu}= \bar{x}\pm\Bigg(z^*\times\frac{s}{\sqrt{n}}\Bigg)$$
 $$p=P\big(D|H_0\big)$$
 <br/>
 
-### *z*-test
+### Test statistics
+
+<br/>
+
+---
+
+#### *z*-test for a proportion
+
+$$z=\frac{\hat{p}-p_{null}}{SE_{\hat{p}}}$$
+<br/>
+
+[the sample proportion ($\hat{p}$) minus the proportion assumed under the null hypothesis ($p_{null}$), divided by the standard error of the proportion ($SE_{\hat{p}}$)]
+
+<br/>
+
+##### standard error for a proportion
+
+$$SE_{\hat{p}}=\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}$$
+<br/>
+
+##### Combined formula for a *z*-test for a proportion
+
+$$z=\frac{\hat{p}-p_{null}}{\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}}$$
+
+---
+
+#### *z*-test for a mean
 
 $$z=\frac{\bar{x}-\mu_{null}}{SE_{mean}}$$
 <br/>
@@ -135,11 +161,11 @@ $$z=\frac{\bar{x}-\mu_{null}}{SE_{mean}}$$
 
 <br/>
 
-#### The standard error of the mean
+##### The standard error of the mean
 
 $$SE_{mean}=\frac{s}{\sqrt{n}}$$
 <br/>
 
-#### Combined formula for a *z*-test
+##### Combined formula for a *z*-test of a mean
 
 $$z=\frac{\bar{x}-\mu_{null}}{s \big/\sqrt{n}}$$
