@@ -88,3 +88,41 @@ $$Expected\ value=a_1p_1+a_2p_2+\ ...a_kp_k$$
 *k*: number of possible outcomes  
 
 ---
+
+<br/>
+
+## Exam 4
+
+### **Rough** 95% Confidence Interval for a proportion
+
+$$95\%\ CI_p= \hat{p}\pm\Bigg(2\times\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\Bigg)$$
+<br/>
+
+### **More exact** Confidence Intervals for a proportion
+
+$$XX\%\ CI_p= \hat{p}\pm\Bigg(z^*\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\Bigg)$$
+<br/>
+
+### Confidence Intervals for a mean
+
+$$95\%\ CI_{\mu}= \bar{x}\pm\Bigg(z^*\times\frac{s}{\sqrt{n}}\Bigg)$$
+<br/>
+
+### *p*-value
+
+$$p-value=P\big(D|H_0\big)$$
+<br/>
+
+### *z*-test
+
+$$z=\frac{\bar{x}-\mu_{null}}{SE_{mean}}$$
+<br/>
+
+(the mean minus the mean assumed under the null hypothesis, divided by the standard error of the mean)
+
+$$SE_{mean}=\frac{s}{\sqrt{n}}$$
+<br/>
+
+Combined formula
+
+$$z=\frac{\bar{x}-\mu_{null}}{s \big/\sqrt{n}}$$
