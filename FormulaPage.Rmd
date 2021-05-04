@@ -107,11 +107,21 @@ $$CI_p= \hat{p}\pm\Bigg(z^*\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\Bigg)$$
 
 - 95th percentile  
   - 1.64  
+<br/>
+- Middle 95% of normal curve  
+  - [-1.96, +1.96]
 - 97.5th percentile  
   - 1.96  
+- 2.5th percentile  
+  - -1.96  
+<br/>
+- Middle 99% of normal curve  
+  - [-2.58, +2.58]  
 - 99.5th percentile  
   - 2.58  
-  
+- 0.5th percentile  
+  - -2.58  
+<br/>
 (for more, see [http://www.normaltable.com/](http://www.normaltable.com/))
   
 <br/>
