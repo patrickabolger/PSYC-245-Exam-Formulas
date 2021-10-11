@@ -1,83 +1,163 @@
 ---
-title: "PSYC 245 Exam Formulas"
-subtitle: "(scroll down for the exam you need)"
+title: "PSYC 245 Exam Formulas and Tables"
+subtitle: "(scroll down for the unit you need)"
 author: "Patrick Bolger, PhD"
-date: "29 April 2021"
+date: "`r format(Sys.time(), '%d %B %Y')`"
 knit: (function(input_file, encoding) {
   out_dir <- 'docs';
   rmarkdown::render(input_file,
  encoding=encoding,
  output_file=file.path(dirname(input_file), out_dir, 'index.html'))})
 output: 
-  rmdformats::downcute:
-    use_bookdown: true
+  rmdformats::readthedown:
+    use_bookdown: false
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = F, warning = F, message = F, comment = NA )
 ```
 
+```{r pload, echo = F}
 
-# PSYC 245
+pacman::p_load(readr, DT, dplyr)
 
-## Exam 2
+```
 
-### The Interquartile Range (*IQR*)
+# Exam 2
+
+## The Interquartile Range (*IQR*)
 
 $$Q_3-Q_1$$
 <br/>
 
-### The mean
+## The mean
 
 $$\overline{x}=\frac{\sum{x_i}}{n}$$
 <br/>
 
-### The variance
+## The variance
 
 
 $$s^2=\frac{\sum(x_i-\overline{x})^2}{n-1}$$
 
 <br/>
 
-### the standard deviation
+## the standard deviation
 
 $$s=\sqrt{\frac{\sum(x_i-\overline{x})^2}{n-1}}$$
 <br/>
 
-### the *z*-score
+## the *z*-score
 
 
 $$z_i=\frac{x_i-\overline{x}}{s}$$
 
 <br/>
 
-### a raw score, given a z-score, an SD, and a mean
+## a raw score, given a z-score, an SD, and a mean
 
 $$x_i=z_i(s)+\overline{x}$$
 
 <br/>
 
-### Pearson's *r* correlation coefficient
+## Pearson's *r* correlation coefficient
 
 $$r_{x,y}=\frac{\sum z_{(x_i)}z_{(y_i)}}{n-1}$$
 
 <br/>
 
-### Simple Regression equation
+## Simple Regression equation
 
 $$y=a+bX$$
 
-## Exam 3
+## Normal (*z*-) tables
 
-### Odds
+```{r importZ, include=F}
+
+# raw file shows area to the left of specific z-scores
+ztable_leftward <- round(read_csv("tables/ztable.csv", col_types = cols()),4)
+# remove lines that are all zeros
+ztable_leftward_filtered <- ztable_leftward %>% 
+  filter(if_all(starts_with("0"), ~ . > 0)) %>%
+  filter(if_all(starts_with("0"), ~ . < 1)) 
+ztable_rightward_filtered <- ztable_leftward_filtered %>% mutate(across(`0`:`0.09`, ~ 1-.x))
+
+ztable_leftward_filtered <- ztable_leftward_filtered %>% mutate(across(`0`:`0.09`, ~ round(.x,4)))
+ztable_rightward_filtered <- ztable_rightward_filtered %>% mutate(across(`0`:`0.09`, ~ round(.x,4)))
+
+```
+
+```{r zContainer}
+
+zsketch <- htmltools::withTags(table(
+  class = 'display',
+  thead(
+    tr(
+      th(rowspan = 2, 'First 2 digits of z-score'),
+      th(colspan = 10, '3rd digit of z-score'),
+    ),
+    tr(lapply(
+      c('0.00', '0.01', '0.02', '0.03', '0.04', 
+        '0.05', '0.06', '0.07', '0.08', '0.09'), th)
+      )
+    )
+  )
+)
+
+```
+
+### *z*-table (rightward)
+
+**Directions**: To get any particular *z*-score, combine the value in the row in the left-most column (`First 2 digits of z-score`) with the appropriate value across the top of the rightward columns (`3rd digit of z-score`). For example, the area `to the right` of a *z*-score of `-1.25` would be found by finding the intersection of `-1.2` in the first column with the column labeled `0.05` across the top (This value is 0.8944).
+
+<br/>
+
+```{r zDisplayRightward}
+
+DT::datatable(
+  ztable_rightward_filtered, 
+  container = zsketch,
+  rownames = FALSE,
+  extensions = 'KeyTable',
+  options = list(keys = TRUE)
+  )
+
+```
+<br/>
+
+### *z*-table (leftward)
+
+**Directions**: To get any particular *z*-score, combine the value in the row in the left-most column (`First 2 digits of z-score`) with the appropriate value across the top of the rightward columns (`3rd digit of z-score`). For example, the area `to the left` of a *z*-score of `-1.25` would be found by finding the intersection of `-1.2` in the first column with the column labeled `0.05` across the top (this value is 0.1056).
+
+<br/>
+
+```{r zDisplayLeftward}
+
+DT::datatable(
+  ztable_leftward_filtered, 
+  container = zsketch,
+  rownames = FALSE,
+  extensions = 'KeyTable',
+  options = list(keys = TRUE),
+  caption = 
+  )
+
+```
+
+---
+
+
+# Exam 3
+
+## Odds
 
 $$Odds = A\ to\ B$$
 
-### probability from odds
+## probability from odds
 
 $$\frac{B}{A+B}$$
 
-### expected value
+## expected value
 
 $$Expected\ value=a_1p_1+a_2p_2+\ ...a_kp_k$$
 
@@ -91,19 +171,19 @@ $$Expected\ value=a_1p_1+a_2p_2+\ ...a_kp_k$$
 
 <br/>
 
-## Exam 4
+# Exam 4
 
-### **Rough** 95% Confidence Interval for a proportion
+## **Rough** 95% Confidence Interval for a proportion
 
 $$95\%\ CI_p= \hat{p}\pm\Bigg(2\times\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\Bigg)$$
 <br/>
 
-### **More exact** Confidence Intervals for a proportion
+## **More exact** Confidence Intervals for a proportion
 
 $$CI_p= \hat{p}\pm\Bigg(z^*\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\Bigg)$$
 <br/>
 
-### Important $z^*$ values
+## Important $z^*$ values
 
 - 95th percentile  
   - 1.64  
@@ -126,23 +206,23 @@ $$CI_p= \hat{p}\pm\Bigg(z^*\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\Bigg)$$
   
 <br/>
 
-### Confidence Intervals for a mean
+## Confidence Intervals for a mean
 
 $$95\%\ CI_{\mu}= \bar{x}\pm\Bigg(z^*\times\frac{s}{\sqrt{n}}\Bigg)$$
 <br/>
 
-### *p*-value
+## *p*-value
 
 $$p=P\big(D|H_0\big)$$
 <br/>
 
-### Test statistics
+## Test statistics
 
 <br/>
 
 ---
 
-#### *z*-test for a proportion
+### *z*-test for a proportion
 
 $$z=\frac{\hat{p}-p_{null}}{SE_{\hat{p}}}$$
 <br/>
@@ -151,18 +231,18 @@ $$z=\frac{\hat{p}-p_{null}}{SE_{\hat{p}}}$$
 
 <br/>
 
-##### standard error for a proportion
+#### standard error for a proportion
 
 $$SE_{\hat{p}}=\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}$$
 <br/>
 
-##### Combined formula for a *z*-test for a proportion
+#### Combined formula for a *z*-test for a proportion
 
 $$z=\frac{\hat{p}-p_{null}}{\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}}$$
 
 ---
 
-#### *z*-test for a mean
+### *z*-test for a mean
 
 $$z=\frac{\bar{x}-\mu_{null}}{SE_{mean}}$$
 <br/>
@@ -171,11 +251,11 @@ $$z=\frac{\bar{x}-\mu_{null}}{SE_{mean}}$$
 
 <br/>
 
-##### The standard error of the mean
+#### The standard error of the mean
 
 $$SE_{mean}=\frac{s}{\sqrt{n}}$$
 <br/>
 
-##### Combined formula for a *z*-test of a mean
+#### Combined formula for a *z*-test of a mean
 
 $$z=\frac{\bar{x}-\mu_{null}}{s \big/\sqrt{n}}$$
